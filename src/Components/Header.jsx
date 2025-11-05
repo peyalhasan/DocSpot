@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavNavLink } from 'react-router';
+import { NavLink } from 'react-router';
 
 const Header = () => {
 
-    const navNavLink = <div className=' flex gap-4 text-xl font-bold'>
-        <NavLink to={'/home'}>Home</NavLink>
-        <NavLink to={'/about'}>About</NavLink>
-        <NavLink to={'/doctor'}>Doctors</NavLink>
+    const navLink = <div className=' flex gap-4 text-xl font-bold'>
+        <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/home'}>Home</NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/about'}>About</NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/doctor'}>Doctors</NavLink>
 
     </div>
     return (
@@ -20,14 +20,14 @@ const Header = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3  p-2 shadow">
-                            {navNavLink}
+                            {navLink}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">daisyUI</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        {navNavLink}
+                        {navLink}
                     </ul>
                 </div>
                 <div className="navbar-end">
