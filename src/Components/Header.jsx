@@ -4,7 +4,7 @@ import { NavNavLink } from 'react-router';
 const Header = () => {
 
     const navNavLink = <div className=' flex gap-4 text-xl font-bold'>
-        <NavLink className={()  to={'/home'}>Home</NavLink>
+        <NavLink to={'/home'}>Home</NavLink>
         <NavLink to={'/about'}>About</NavLink>
         <NavLink to={'/doctor'}>Doctors</NavLink>
 
