@@ -1,7 +1,12 @@
-import React from 'react';
+import { useContext } from "react";
+import { AppContext } from "./Context/CreateContext";
+
 
 const Doctor = ({ doctors }) => {
-    const { name, image, education, experience, fees, speciality, workingAt } = doctors
+    const { name, image, education, experience, fees, speciality, workingAt } = doctors;
+
+    const { handleAppointmentOfDoctors } = useContext(AppContext)
+
     return (
         <div>
             <div className=" bg-base-100 w-full shadow-sm  rounded-xl">
@@ -21,7 +26,7 @@ const Doctor = ({ doctors }) => {
                         <h1>Education: {education}  </h1>
                         <h1>Fees: {fees} </h1>
                     </div>
-                    <button className='btn btn-primary'>Visit</button>
+                    <button onClick={() => handleAppointmentOfDoctors(doctors)} className='btn btn-primary'>Visit</button>
 
                 </div>
             </div>

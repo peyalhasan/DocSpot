@@ -3,6 +3,7 @@ import RootLayout from "./RootLayout";
 import Home from "./Home";
 import About from "./About";
 import Doctors from "./Doctors";
+import Loader from "./Loader";
 
 
 
@@ -24,10 +25,11 @@ export const Router = createBrowserRouter([
                 Component: About
             },
             {
-                path: 'doctor',
+                path: '/doctor',
                 Component: Doctors,
-                loader: () => fetch('data.json')
-            }
+                loader: () => fetch('data.json'),
+                hydrateFallbackElement: <Loader></Loader>
+            },
         ]
     }
 ])
