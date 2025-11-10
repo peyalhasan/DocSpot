@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AppContext } from "./Context/CreateContext";
+import { Link } from "react-router";
 
 
 const Doctor = ({ doctors }) => {
-    const { name, image, education, experience, fees, speciality, workingAt } = doctors;
+    const { id, name, image, education, experience, fees, speciality, workingAt } = doctors;
 
     const { handleAppointmentOfDoctors } = useContext(AppContext)
 
@@ -26,8 +27,8 @@ const Doctor = ({ doctors }) => {
                         <h1>Education: {education}  </h1>
                         <h1>Fees: {fees} </h1>
                     </div>
-                    <button onClick={() => handleAppointmentOfDoctors(doctors)} className='btn btn-primary'>Visit</button>
-
+                    <button onClick={() => handleAppointmentOfDoctors(doctors)} className='btn btn-primary'>Appointment</button>
+                    <Link to={`/doctors/${id}`} >Show Details</Link>
                 </div>
             </div>
         </div>

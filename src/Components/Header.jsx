@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { NavLink, Link } from 'react-router';
 
 const Header = () => {
 
@@ -7,6 +7,7 @@ const Header = () => {
         <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/home'}>Home</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/about'}>About</NavLink>
         <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/doctor'}>Doctors</NavLink>
+        <NavLink className={({ isActive }) => isActive ? 'border-b-4 border-purple-600 ' : ''} to={'/appointment'}>Appointment</NavLink>
 
     </div>
     return (
@@ -23,7 +24,7 @@ const Header = () => {
                             {navLink}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link to={'/home'} className="btn btn-ghost text-xl">Doctor</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Doctor from './Doctor';
+import { AppContext } from './Context/CreateContext';
+import Loader from './Loader';
 
 const Doctors = () => {
     const data = useLoaderData();
-
     const [doctros, setDoctors] = useState(data);
+    const { loader, setLoader } = useContext(AppContext);
+    useEffect(() => {
+        setDoctors(data);
+        setLoader(false);
+    }, [data, setLoader])
 
     const searchDocotrs = (e) => {
         e.preventDefault()
@@ -17,6 +23,9 @@ const Doctors = () => {
         else {
             setDoctors(data)
         }
+    }
+    if (loader) {
+        return <Loader></Loader>
     }
 
     return (
@@ -34,7 +43,7 @@ const Doctors = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5' >
                 {
-                    doctros.map(item => <Doctor doctors={item} key={item.id}></Doctor>)
+                    doctros?.map(item => <Doctor doctors={item} key={item.id}></Doctor>)
                 }
             </div>
         </div>
